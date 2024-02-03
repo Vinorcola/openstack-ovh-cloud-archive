@@ -1,12 +1,15 @@
 {
-    "name": "php-opencloud/openstack",
-    "description": "PHP SDK for OpenStack APIs. Supports BlockStorage, Compute, Identity, Images, Networking and Metric Gnocchi",
+    "name": "vinorcola/openstack-ovh-cloud-archive",
+    "description": "Fork of PHP OpenStack SDK dedicated to OVH Cloud Archive",
     "license": "Apache-2.0",
     "keywords": [
         "php",
         "openstack",
         "api",
-        "sdk"
+        "sdk",
+        "ovh",
+        "cloud",
+        "archive"
     ],
     "authors": [
         {

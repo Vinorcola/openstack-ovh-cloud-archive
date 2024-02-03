@@ -1,4 +1,4 @@
-# Dedicated fork of PHP OpenStack SDK for OVH Cloud Archive
+# Fork of PHP OpenStack SDK dedicated to OVH Cloud Archive
 
 This package add the ability to extract some specific headers on stored objects. This is intended to use with OVH Cloud
 Archive service.
