@@ -1,63 +1,12 @@
-# PHP OpenStack SDK
+# Dedicated fork of PHP OpenStack SDK for OVH Cloud Archive
 
+This package add the ability to extract some specific headers on stored objects. This is intended to use with OVH Cloud
+Archive service.
 
-![Unit tests](https://github.com/php-opencloud/openstack/actions/workflows/unit_tests.yml/badge.svg)
-[![Integration Tests](https://github.com/php-opencloud/openstack/actions/workflows/integration_tests.yml/badge.svg)](https://github.com/php-opencloud/openstack/actions/workflows/integration_tests.yml)
-[![Documentation Status](https://readthedocs.org/projects/php-openstack-sdk/badge/?version=latest)](https://php-openstack-sdk.readthedocs.io/en/latest/?badge=latest)
+This package is adding 2 attributes to the `StorageObject` class:
 
-`php-opencloud/openstack` is an SDK which allows PHP developers to easily connect to OpenStack APIs in a simple and 
-idiomatic way. This binding is specifically designed for OpenStack APIs, but other provider SDKs are available. Multiple 
-OpenStack services, and versions of services, are supported.
- 
-## Links
+* `string|null $retrievalState` that contains the value of the `x-ovh-retrieval-state` header when applicable.
+* `int|null $retrievalDelay` that contains the value of the `x-ovh-retrieval-delay` header when applicable.
 
-* [Official documentation](https://php-openstack-sdk.readthedocs.io/en/latest/)
-* [Supported services](/COVERAGE.md)
-* [Contributing guide](/CONTRIBUTING.md)
-* [Code of Conduct](/CODE_OF_CONDUCT.md)
-
-## Join the community
-   
-- Report an issue: https://github.com/php-opencloud/openstack/issues
-
-## Versioning
-
-Openstack SDK follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
-
-Updating between minor versions will not require changes to PHP code or configuration
-and cause no breaking behavioural changes for consumers.
-
-| Version   | Status      | PHP Version      | Support until           |
-| --------- |-------------| ---------------- | ----------------------- |
-| `^3.2`    | Latest      | `>=7.2.5, >=8.0` | Current                 |
-| `^3.1`    | Latest      | `>=7.2.5`        | Current                 |
-| `^3.0`    | End of life | `>=7.0`          | Oct 2020                |
-| `^2.0`    | End of life | `>=7.0,<7.2`     | March 2018              |
-
-
-## Upgrade from 2.x to 3.x
-
-Due to new [object typehint](https://wiki.php.net/rfc/object-typehint) since PHP 7.2, `Object` is a reserved keyword 
-thus class `OpenStack\ObjectStore\v1\Models\Object` had to be renamed to 
-`OpenStack\ObjectStore\v1\Models\StorageObject`. 
-
-This change was introduced in [#184](https://github.com/php-opencloud/openstack/pull/184).
-
-## Requirements
-
-* PHP >= 7.2.5
-* `ext-curl`
-
-## How to install
-
-```bash
-composer require php-opencloud/openstack
-```
-
-## Contributing
-
-Engaging the community and lowering barriers for contributors is something we care a lot about. For this reason, we've 
-taken the time to write a [contributing guide](CONTRIBUTING.md) for folks interested in getting involved in our project. 
-If you're not sure how you can get involved, feel free to 
-[submit an issue](https://github.com/php-opencloud/openstack/issues/new). You don't need to be a PHP expert - all members of the 
-community are welcome!
+Please refer to the original SDK for complete documentation: https://github.com/php-opencloud/openstack
+Please refer to OVH documentation: https://help.ovhcloud.com/csm/en-ie-documentation-storage-object-storage-openstack-swift-archive-storage-class-specifics?id=kb_browse_cat&kb_id=38e74da5a884a950f07829d7d5c75217&kb_category=b0a0a144f06521142d4c573843a28193

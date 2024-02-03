@@ -44,6 +44,12 @@ class StorageObject extends OperatorResource implements Creatable, Deletable, Ha
     /** @var array */
     public $metadata;
 
+    /** @var string|null */
+    public $retrievalState = null;
+
+    /** @var int|null */
+    public $retrievalDelay = null;
+
     protected $markerKey = 'name';
 
     protected $aliases = [
@@ -78,6 +84,12 @@ class StorageObject extends OperatorResource implements Creatable, Deletable, Ha
         $this->lastModified  = $response->getHeaderLine('Last-Modified');
         $this->contentType   = $response->getHeaderLine('Content-Type');
         $this->metadata      = $this->parseMetadata($response);
+        if ($response->hasHeader('x-ovh-retrieval-state')) {
+            $this->retrievalState = $response->getHeaderLine('x-ovh-retrieval-state');
+        }
+        if ($response->hasHeader('x-ovh-retrieval-delay')) {
+            $this->retrievalState = \intval($response->getHeaderLine('x-ovh-retrieval-delay'));
+        }
 
         return $this;
     }
