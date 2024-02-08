@@ -88,7 +88,7 @@ class StorageObject extends OperatorResource implements Creatable, Deletable, Ha
             $this->retrievalState = $response->getHeaderLine('x-ovh-retrieval-state');
         }
         if ($response->hasHeader('x-ovh-retrieval-delay')) {
-            $this->retrievalState = \intval($response->getHeaderLine('x-ovh-retrieval-delay'));
+            $this->retrievalDelay = \intval($response->getHeaderLine('x-ovh-retrieval-delay'));
         }
 
         return $this;
